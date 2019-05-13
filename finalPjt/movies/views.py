@@ -5,6 +5,72 @@ from .models import Movie, Rating
 from django.views.decorators.http import require_POST
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
+from django.contrib.auth import get_user_model, update_session_auth_hash
 
 
-# Create your views here.
+# 영화 생성 - superuser인 경우에만 가능하도록
+def create(request):
+    # superuser인가? 
+    if request.user.is_superuser:
+        if request.method == "POST":
+            form = MovieForm(request, request.FILES)
+            if form.is_valid():
+                movie = form.save()
+            return redirect('movies:list')
+
+        else:
+            form = MovieForm()
+        return render(request, 'movies/create.html', {'form':form})
+        
+    else:
+        return redirect('movies:list')
+
+# 영화 리스트 - 현재 상영작
+def list(request):
+    movies = Movie.objects.all()
+    return render(request, 'movies/list.html')
+    
+
+def update(request, movie_id):
+    pass
+    
+
+def delete(request, movie_id):
+    pass
+
+
+## 영화 평점 매기기 - 영화 상세정보 페이지에서 남김
+@login_required
+def create_rating(request, movie_id):
+    movie = get_object_or_404(Movie, pk=movie_id)
+    form = RatingForm(request.POST)
+    if form.is_valid():
+        rating = form.save(commit=False)
+        rating.user = request.user
+        rating.movie = movie
+        rating.save()
+    # 다음에 다시 상세페이지로 보내기
+    return redirect('movies:list')
+    
+@require_POST
+def delete_rating(request, movie_id, rating_id):
+    rating = Rating.objects.get(pk=rating_id)
+    if rating.user == request.user:
+        comment.delete()
+    return redirect('movies:list')
+
+@login_required
+def update_rating(request, movie_id, rating_id):
+    rating = Rating.objects.get(pk=rating_id)
+    if rating.user == request.user:
+        if request.method == "POST":
+            form = RatingForm(request.POST, instance=rating)
+            if form.is_valid():
+                form.save()
+                return redirect('movies:list')
+        else:
+            form = RatingForm(instance=rating)
+        return render(request, 'movies/update.html', {'form':form})
+        
+    else:
+        return redirect('movies:list')

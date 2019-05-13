@@ -17,7 +17,7 @@ def login(request):
         form = AuthenticationForm(request, request.POST) # request, request.POST
         if form.is_valid():
             auth_login(request, form.get_user()) 
-            return redirect(request.GET.get('next') or 'posts:list') 
+            return redirect(request.GET.get('next') or 'movies:list') 
     else: 
         # GET: 로그인 정보 입력
         form = AuthenticationForm()
@@ -27,7 +27,7 @@ def login(request):
 
 def logout(request):
     auth_logout(request)
-    return redirect('posts:list')
+    return redirect('movies:list')
     
 
 def signup(request):
@@ -38,7 +38,7 @@ def signup(request):
             user = form.save()
             Profile.objects.create(user=user)
             auth_login(request, user)
-        return redirect('posts:list')
+        return redirect('movies:list')
     else:
         form = CustomUserCreationForm()
         

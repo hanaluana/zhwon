@@ -18,4 +18,4 @@ class Profile(models.Model):
 class User(AbstractUser):
     # 더 이상 contrib.models.Model의 유저가 아니라 accounts app 에 있는 유저
     followers = models.ManyToManyField(settings.AUTH_USER_MODEL, related_name="followings")
-    is_staff = models.BooleanField(default=False)
+    # is_staff = models.BooleanField(default=False)
