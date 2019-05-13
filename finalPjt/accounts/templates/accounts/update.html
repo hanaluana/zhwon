@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+
+{% block body %}
+  <h1 class="text-center">회원정보변경</h1>
+  <form method="POST" enctype="multipart/form-data">
+   <!--모델 폼-->
+   {% csrf_token %}
+   {{ user_change_form.as_p }}
+   {{ profile_form.as_p }}
+   <button type="submit">정보수정</button>
+   </form>
+
+{% endblock %}

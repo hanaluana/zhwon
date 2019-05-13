@@ -1,6 +1,8 @@
 from django.urls import path, include
 from . import views
 
+app_name = "movies"
+
 urlpatterns = [
     # path('create/', views.create, name="create"),
     # path('',views.list, name="list"),
