@@ -2,8 +2,13 @@ from django.urls import path, include
 from . import views
 
 urlpatterns = [
-    path('', views.movie_list, name="list"), 
-    path('<int:movie_id>/', views.movie_detail, name="detail"),
+    path('create/', views.create, name="create"),
+    path('',views.list, name="list"),
     
-    path('<int:movie_id>/comment/create/<int:rating_id>/', views.rating, name='comment'),
+    path('<int:movie_id>/delete/', views.delete, name='delete'),
+    path('<int:movie_id>/update/', views.update, name='update'),
+    
+    path('<int:movie_id>/rating/create/', views.create_rating, name='create_rating'),
+    path('<int:movie_id>/rating/<int:rating_id>/delete', views.delete_rating, name="delete_rating"),
+    path('<int:movie_id>/rating/<int:rating_id>/update', views.update_rating, name="update_rating"),
 ]
