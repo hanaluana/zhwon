@@ -3,12 +3,13 @@ from django.conf import settings
 
 # Create your models here.
 class Movie(models.Model):
+    user_Rating = models.FloatField(default=0)
     title = models.CharField(max_length=150, default='')
     genre = models.CharField(max_length=100, default='')
     director = models.CharField(max_length=200, default='')
     naver_link = models.TextField(default='')
     image =models.TextField(default='')
-      
+    
     def __str__(self):
         return self.title
 
