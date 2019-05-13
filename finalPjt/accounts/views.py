@@ -21,7 +21,7 @@ def login(request):
     else: 
         # GET: 로그인 정보 입력
         form = AuthenticationForm()
-    return render(request, 'accounts/login.html', {'form':form})
+    return render(request, 'accounts/login.html', {'form': form})
     
 
 
