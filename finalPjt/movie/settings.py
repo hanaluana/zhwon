@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'django_extensions',
     'accounts',
     'movies',
+    'rest_framework',
+    'rest_framework_swagger',
     
     
 ]
@@ -59,7 +61,7 @@ ROOT_URLCONF = 'movie.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
