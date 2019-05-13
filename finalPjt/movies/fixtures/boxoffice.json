@@ -1,0 +1,296 @@
+[
+  {
+    "movie_code": 20181877,
+    "title": "캡틴 마블",
+    "audience": 5796057,
+    "recorded_at": 20190505
+  },
+  {
+    "movie_code": 20196601,
+    "title": "항거:유관순 이야기",
+    "audience": 1042049,
+    "recorded_at": 20190310
+  },
+  {
+    "movie_code": 20177539,
+    "title": "사바하",
+    "audience": 2340525,
+    "recorded_at": 20190310
+  },
+  {
+    "movie_code": 20185881,
+    "title": "증인",
+    "audience": 2457291,
+    "recorded_at": 20190310
+  },
+  {
+    "movie_code": 20182530,
+    "title": "극한직업",
+    "audience": 16178547,
+    "recorded_at": 20190310
+  },
+  {
+    "movie_code": 20184574,
+    "title": "그린 북",
+    "audience": 372293,
+    "recorded_at": 20190310
+  },
+  {
+    "movie_code": 20180937,
+    "title": "더 페이버릿: 여왕의 여자",
+    "audience": 133508,
+    "recorded_at": 20190310
+  },
+  {
+    "movie_code": 20177282,
+    "title": "리노",
+    "audience": 16489,
+    "recorded_at": 20190310
+  },
+  {
+    "movie_code": 20176442,
+    "title": "자전차왕 엄복동",
+    "audience": 168884,
+    "recorded_at": 20190310
+  },
+  {
+    "movie_code": 20195743,
+    "title": "신데렐라:마법 반지의 비밀",
+    "audience": 281705,
+    "recorded_at": 20190310
+  },
+  {
+    "movie_code": 20197283,
+    "title": "이스케이프 룸",
+    "audience": 389570,
+    "recorded_at": 20190317
+  },
+  {
+    "movie_code": 20176103,
+    "title": "돈",
+    "audience": 75464,
+    "recorded_at": 20190317
+  },
+  {
+    "movie_code": 20197356,
+    "title": "라스트 미션",
+    "audience": 64302,
+    "recorded_at": 20190317
+  },
+  {
+    "movie_code": 20196723,
+    "title": "숲속왕국의 꿀벌 여왕",
+    "audience": 18305,
+    "recorded_at": 20190317
+  },
+  {
+    "movie_code": 20197846,
+    "title": "악질경찰",
+    "audience": 189604,
+    "recorded_at": 20190324
+  },
+  {
+    "movie_code": 20175407,
+    "title": "우상",
+    "audience": 137880,
+    "recorded_at": 20190324
+  },
+  {
+    "movie_code": 20198603,
+    "title": "페이트 스테이 나이트 헤븐즈필 제2장 로스트 버터플라이",
+    "audience": 24340,
+    "recorded_at": 20190324
+  },
+  {
+    "movie_code": 20197617,
+    "title": "정글북: 마법 원정대",
+    "audience": 22534,
+    "recorded_at": 20190324
+  },
+  {
+    "movie_code": 20185352,
+    "title": "어스",
+    "audience": 936427,
+    "recorded_at": 20190331
+  },
+  {
+    "movie_code": 20196025,
+    "title": "덤보",
+    "audience": 212836,
+    "recorded_at": 20190331
+  },
+  {
+    "movie_code": 20183773,
+    "title": "장난스런 키스",
+    "audience": 172939,
+    "recorded_at": 20190331
+  },
+  {
+    "movie_code": 20166301,
+    "title": "썬키스 패밀리",
+    "audience": 26086,
+    "recorded_at": 20190331
+  },
+  {
+    "movie_code": 20197483,
+    "title": "1919 유관순",
+    "audience": 46858,
+    "recorded_at": 20190331
+  },
+  {
+    "movie_code": 20198146,
+    "title": "콜레트",
+    "audience": 22341,
+    "recorded_at": 20190331
+  },
+  {
+    "movie_code": 20196244,
+    "title": "샤잠!",
+    "audience": 500650,
+    "recorded_at": 20190407
+  },
+  {
+    "movie_code": 20183096,
+    "title": "생일",
+    "audience": 375445,
+    "recorded_at": 20190407
+  },
+  {
+    "movie_code": 20197092,
+    "title": "로망",
+    "audience": 46938,
+    "recorded_at": 20190407
+  },
+  {
+    "movie_code": 20198104,
+    "title": "바이스",
+    "audience": 9652,
+    "recorded_at": 20190407
+  },
+  {
+    "movie_code": 20185406,
+    "title": "헬보이",
+    "audience": 220243,
+    "recorded_at": 20190414
+  },
+  {
+    "movie_code": 20180825,
+    "title": "미성년",
+    "audience": 141588,
+    "recorded_at": 20190414
+  },
+  {
+    "movie_code": 20197423,
+    "title": "공포의 묘지",
+    "audience": 87134,
+    "recorded_at": 20190414
+  },
+  {
+    "movie_code": 20198403,
+    "title": "파이브 피트",
+    "audience": 67395,
+    "recorded_at": 20190414
+  },
+  {
+    "movie_code": 20183454,
+    "title": "요로나의 저주",
+    "audience": 161060,
+    "recorded_at": 20190421
+  },
+  {
+    "movie_code": 20198982,
+    "title": "크게 될 놈",
+    "audience": 62272,
+    "recorded_at": 20190421
+  },
+  {
+    "movie_code": 20182501,
+    "title": "왓칭",
+    "audience": 46139,
+    "recorded_at": 20190421
+  },
+  {
+    "movie_code": 20198844,
+    "title": "아이 엠 마더",
+    "audience": 83953,
+    "recorded_at": 20190421
+  },
+  {
+    "movie_code": 20184889,
+    "title": "어벤져스: 엔드게임",
+    "audience": 6308056,
+    "recorded_at": 20190428
+  },
+  {
+    "movie_code": 20198183,
+    "title": "뽀로로 극장판 보물섬 대모험",
+    "audience": 275016,
+    "recorded_at": 20190428
+  },
+  {
+    "movie_code": 19990220,
+    "title": "노팅 힐",
+    "audience": 49958,
+    "recorded_at": 20190428
+  },
+  {
+    "movie_code": 20185784,
+    "title": "나의 특별한 형제",
+    "audience": 660863,
+    "recorded_at": 20190505
+  },
+  {
+    "movie_code": 20198598,
+    "title": "명탐정 피카츄",
+    "audience": 119718,
+    "recorded_at": 20190505
+  },
+  {
+    "movie_code": 20197147,
+    "title": "어글리 돌",
+    "audience": 37541,
+    "recorded_at": 20190505
+  },
+  {
+    "movie_code": 20169323,
+    "title": "안도 타다오",
+    "audience": 18101,
+    "recorded_at": 20190505
+  },
+  {
+    "movie_code": 20060347,
+    "title": "판의 미로 - 오필리아와 세 개의 열쇠",
+    "audience": 482423,
+    "recorded_at": 20190505
+  },
+  {
+    "movie_code": 20199736,
+    "title": "프렌즈: 둥지탈출",
+    "audience": 10178,
+    "recorded_at": 20190505
+  },
+  {
+    "movie_code": 20184082,
+    "title": "걸캅스",
+    "audience": 591979,
+    "recorded_at": 20190512
+  },
+  {
+    "movie_code": 20185384,
+    "title": "호텔 뭄바이",
+    "audience": 37029,
+    "recorded_at": 20190512
+  },
+  {
+    "movie_code": 20188941,
+    "title": "악인전",
+    "audience": 21280,
+    "recorded_at": 20190512
+  },
+  {
+    "movie_code": 20187981,
+    "title": "배심원들",
+    "audience": 23716,
+    "recorded_at": 20190512
+  }
+]
