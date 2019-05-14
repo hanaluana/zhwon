@@ -6,10 +6,9 @@ from django.contrib.auth import get_user_model, update_session_auth_hash
 
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm, UserChangeForm, PasswordChangeForm
 
-
 from .forms import CustomUserChangeForm, ProfileForm, CustomUserCreationForm
 from .models import Profile, User
-
+from movies.models import Rating
 
 
 def login(request):
@@ -108,3 +107,8 @@ def follow(request, user_id):
         person.followers.add(request.user)
 
     return redirect('people', person.username)
+    
+def mypage(request):
+    ratings = Rating.objects.filter(user=request.user)
+    return render(request, 'accounts/mypage.html', {'ratings':ratings})
+    

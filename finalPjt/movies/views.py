@@ -103,14 +103,13 @@ def create_rating(request, movie_id):
         rating.movie = movie
         rating.save()
     # 다음에 다시 상세페이지로 보내기
-    return redirect('movies:list')
+    return redirect('movies:detail', movie.id)
     
-@require_POST
 def delete_rating(request, movie_id, rating_id):
     rating = Rating.objects.get(pk=rating_id)
     if rating.user == request.user:
-        comment.delete()
-    return redirect('movies:list')
+        rating.delete()
+    return redirect('movies:detail', movie_id)
 
 @login_required
 def update_rating(request, movie_id, rating_id):
@@ -120,7 +119,7 @@ def update_rating(request, movie_id, rating_id):
             form = RatingForm(request.POST, instance=rating)
             if form.is_valid():
                 form.save()
-                return redirect('movies:list')
+                return redirect('movies:detail', movie_id)
         else:
             form = RatingForm(instance=rating)
         return render(request, 'movies/update.html', {'form':form})
@@ -133,3 +132,4 @@ def current(request):
 
 def recommend(request):
     return render(request, 'movies/recommend.html')
+
