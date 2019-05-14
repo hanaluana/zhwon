@@ -15,8 +15,11 @@
           <div class="card-body">
             <button class="btn btn-success">평점{{rating.score}}</button>
             <a href={% url 'movies:update_rating' rating.movie.id rating.id %} class="btn btn-warning">수정</a>  
-            <a href={% url 'movies:delete_rating' rating.movie.id rating.id %} class="btn btn-danger">삭제</a>  
-          </div>
+            <form class="d-inline-block" action={% url 'movies:delete_rating' rating.movie.id rating.id %} method="POST">
+              {% csrf_token %}
+               <button type="submit" class="btn btn-danger">삭제</button>
+            </form>
+            </div>
           
         </div>
       {% endfor %}
