@@ -1,10 +1,12 @@
 {% extends 'base.html' %}
 
+{% load bootstrap4 %}
+
 {% block body %}
   <h1>영화 생성 페이지</h1>
     <form method="POST">
         {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">영화추가</button>
+        {% bootstrap_form form %}        
+      <button class='btn btn-primary' type="submit">영화추가</button>
     </form>
 {% endblock %}

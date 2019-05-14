@@ -1,5 +1,32 @@
 {% extends 'base.html' %}
+{% load bootstrap4 %}
 {% block body %}
+
   <h1>영화리스트</h1>
-  <a href="{% url 'movies:create' %}">영화 추가하러 가기</a>
+  {% if user.is_superuser %}
+  <div>
+    <a href="{% url 'movies:create' %}">영화 추가하러 가기</a>
+  </div>
+  {% endif %}
+  
+  <div class="row justify-content-center">
+    {% for movie in movies %}
+     <div class="card mt-2 mr-2" style="width: 20rem;">
+       <a href="{% url 'movies:detail' movie.id %}">
+        <img src="{{ movie.image }}" class="card-img-top" alt="movie.title">
+      </a>
+
+        <div class="card-body">
+          <h5 class="card-text">{{ movie.title }}</h5>
+        </div>
+        <div class="card-body">
+          <button class="btn btn-success">네이버 평점{{movie.user_Rating}}</button>
+          <button class="btn btn-danger">동무들 평점{{ avg_score|get_item:movie.id }}
+</button>
+        </div>
+        
+      </div>
+    {% endfor %}
+  </div>
+
 {% endblock %}

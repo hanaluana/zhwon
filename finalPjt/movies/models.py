@@ -16,8 +16,7 @@ class Movie(models.Model):
     naver_link = models.TextField(default='')
     image =models.TextField(default='')
     
-    def __str__(self):
-        return self.title
+
 
 class Rating(models.Model):
     comment = models.CharField(max_length=200)
