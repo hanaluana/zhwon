@@ -127,3 +127,9 @@ def update_rating(request, movie_id, rating_id):
         
     else:
         return redirect('movies:list')
+
+def current(request):
+    return render(request, 'movies/current.html')
+
+def recommend(request):
+    return render(request, 'movies/recommend.html')

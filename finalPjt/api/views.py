@@ -96,14 +96,20 @@ def naver(request, type_id):
     doc = BeautifulSoup(response, 'html.parser')
     temp = doc.select_one('#old_content > table > tbody')
     
-    temp = temp.findAll('tr')[1:11]
+    temp = temp.findAll('tr')
+    # print(len(temp))
+    
+    if len(temp)<=11:
+        temp = temp[1:-1]
+    else:
+        temp = temp[1:11]
 
     i=1
     for movie in temp:
         movies['data'].append({'title': movie.find('a').text, 'url': 'https://movie.naver.com'+movie.select_one('a')['href'], 'image_url': movie.select_one('img')['src'], 'rank':i, 'naver_point': movie.find('td',{'class':'point'}).text})
         i+=1
     
-    print(movies)
+    # print(movies)
     return Response(movies)
 
 @api_view(['GET'])
