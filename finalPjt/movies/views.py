@@ -80,17 +80,17 @@ def update(request, movie_id):
         form = MovieForm(request.POST, instance=movie)
         if form.is_valid:
             form.save()
-            return redirect('movies:list')
+            return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
     else:
         form = MovieForm(instance=movie)
         return render(request, 'movies/update.html', {'form':form})
 
+@require_POST
 def delete(request, movie_id):
     movie = get_object_or_404(Movie, pk=movie_id)
     if request.user.is_superuser:
         movie.delete()
     return redirect('movies:list')
-
 
 ## 영화 평점 매기기 - 영화 상세정보 페이지에서 남김
 @login_required
@@ -105,12 +105,13 @@ def create_rating(request, movie_id):
     # 다음에 다시 상세페이지로 보내기
     return redirect('movies:detail', movie.id)
     
+@require_POST
 def delete_rating(request, movie_id, rating_id):
     rating = Rating.objects.get(pk=rating_id)
     if rating.user == request.user:
         rating.delete()
     return redirect('movies:detail', movie_id)
-
+    
 @login_required
 def update_rating(request, movie_id, rating_id):
     rating = Rating.objects.get(pk=rating_id)
