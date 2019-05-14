@@ -12,10 +12,11 @@
       <div class="card-body">
         <h5 class="card-title">{{movie.title}}</h5>
         
-        <p>장르: 
-        {{movie.genre}}
+        <p>장르: {% for genre in movie.genre.all %}
+          {{genre.name}} 
+          {% endfor %}
         </p>
-        
+      
         <p>감독: {{movie.director}}</p>
       </div>
     </div>

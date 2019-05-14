@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+
+{% block body %}
+    <h1>내가 쓴 리뷰를 보여주는 페이지</h1>
+    
+    <div class="row justify-content-center">
+      {% for rating in ratings %}
+       <div class="card mt-2 mr-2" style="width: 20rem;">
+          <div class="card-title">영화제목: {{ rating.movie.title }}</div>
+          <div class="card-body">
+            <h5 class="card-text">{{ rating.comment }}</h5>
+          </div>
+        
+          <div class="card-body">
+            <button class="btn btn-success">평점{{rating.score}}</button>
+            <a href={% url 'movies:update_rating' rating.movie.id rating.id %} class="btn btn-warning">수정</a>  
+            <a href={% url 'movies:delete_rating' rating.movie.id rating.id %} class="btn btn-danger">삭제</a>  
+          </div>
+          
+        </div>
+      {% endfor %}
+    </div>     
+{% endblock %}
