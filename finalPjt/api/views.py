@@ -3,10 +3,7 @@ from rest_framework.response import Response
 from rest_framework.decorators import api_view
 import requests
 from bs4 import BeautifulSoup
-from selenium import webdriver
 import os
-import pprint
-import json
 import datetime
 # Create your views here.
 
