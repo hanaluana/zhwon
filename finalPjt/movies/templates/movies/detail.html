@@ -24,6 +24,10 @@
   
   <!--현재 사용자가 리뷰를 남겨본 적이 없는 경우-->
   {% if check %}
+    <!--별점-->
+    <x-star-rating value="3" number="5"></x-star-rating>
+    <script src="StarRating.js"></script>
+    
     <form method="POST" action="{% url 'movies:create_rating' movie.id%}" class="d-inline">
     <!--bootstrap Form-->
     {% csrf_token %}

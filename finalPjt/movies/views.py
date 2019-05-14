@@ -134,3 +134,9 @@ def current(request):
 def recommend(request):
     return render(request, 'movies/recommend.html')
 
+def show(request):
+    movies = Movie.objects.all()
+    newMovies = []
+    cnt = 0
+    print(movies)
+    return render(request, 'movies/carousel.html')    
