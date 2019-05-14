@@ -46,7 +46,7 @@ def list(request):
             avg_score[movie.id] = sum['score__avg']  
         else:
             avg_score[movie.id] = 0
-    print(avg_score)
+    # print(avg_score)
         
     return render(request, 'movies/list.html', {'movies':movies, 'avg_score':avg_score})
         
