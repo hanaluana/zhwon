@@ -21,18 +21,14 @@
     
     html {
       height: 100%;
-      background-color: #e9ebf4;
-      background: url(https://s.cdpn.io/79/glow.png) no-repeat fixed center -300px,
-        linear-gradient( hsl(229, 33%, 94%), hsla(229, 33%, 94%, 0) ) fixed center top,
-        url(https://s.cdpn.io/79/light-noise.gif) repeat fixed 0 0;
-    }
+      }
     
     
     #wrapper {
-      padding: 10% 0 15% 0;
+      padding: 2% 0 15% 0;
     }
     
-    
+
     /* ----------- start
     here it gets more interesting */
     
@@ -41,6 +37,7 @@
       position: relative;
       display: inline-block;
       perspective: 200;
+      margin-top: 3rem;
     }
     
     .item .stars {
@@ -59,32 +56,23 @@
     
     /* 3D positioning */
     
-    .item:nth-child(1) a { transform: translateZ(-50px) rotateY(20deg); -webkit-filter: grayscale(1) blur(1px); }
-    .item:nth-child(2) a { transform: translateZ(-120px) rotateY(10deg); -webkit-filter: grayscale(1) blur(2px); }
-    .item:nth-child(3) a { transform: translateZ(-150px) rotateY(0deg); -webkit-filter: grayscale(1) blur(3px); }
-    .item:nth-child(4) a { transform: translateZ(-120px) rotateY(-10deg); -webkit-filter: grayscale(1) blur(2px); }
-    .item:nth-child(5) a { transform: translateZ(-50px) rotateY(-20deg); -webkit-filter: grayscale(1) blur(1px); }
+    .item: a { transform: translateZ(-50px) rotateY(20deg); -webkit-filter: grayscale(1) blur(3px); }
     
-    .item:nth-child(1) a img { padding-left: 10px; }
-    .item:nth-child(2) a img { padding-left: 6px; margin: 0 2px; }
-    .item:nth-child(3) a img { padding: 0px; margin: 0 5px; }
-    .item:nth-child(4) a img { padding-right: 6px; margin: 0 2px; }
-    .item:nth-child(5) a img { padding-right: 10px; }
-    
+    .item: a img { padding-left: 20px; margin:0 2px; }
     
     .item a {
       display: inline-block;
       box-reflect: below 0px linear-gradient( hsla(0,0%,100%,0), hsla(0,0%,100%,0) 60%, hsla(0,0%,100%,.15) );
       transition: transform .5s cubic-bezier(.24, .16, .12, 1); 
       transition: transform .5s cubic-bezier(.24, .16, .12, 1), 
-        -webkit-filter .5s cubic-bezier(.24, .16, .12, 1);
+      -webkit-filter .5s cubic-bezier(.24, .16, .12, 1);
     }
     
     /* DVD case */
     
     .item a .case {
       position: relative;
-      display: block;
+      display: inline-block;
       width: 100%;
       height: 100%;
       transition: transform .5s cubic-bezier(.27, .06, .17, .99);	
@@ -103,17 +91,12 @@
         hsla(0,0%,100%,.25) 50%, hsla(0,0%,100%,0) 50% );
     }
     
-    .item:nth-child(1) .case:before { left: 5.5%; }
-    .item:nth-child(2) .case:before { left: 4.5%; }
-    .item:nth-child(3) .case:before { left: 3%; }
-    .item:nth-child(4) .case:before { left: 1.5%; }
-    .item:nth-child(5) .case:before { left: 0%; }
-    
+    .item .case:before { left: 3%; }
     
     /* cover image */
     
     .item img { 
-      display: block;
+      display: inline-block;
       background-color: #222;
       border-radius: 12px / 6px;
       background-image: linear-gradient(hsla(0,0%,100%,.5), hsla(0,0%,100%,0) );
@@ -126,11 +109,27 @@
     .item a:hover { 
       cursor: crosshair;
     }
-    .item a:hover .case {
+    .item a:hover .case{
+      /*opacity: 1;*/
       transform: translateY(-20px);
       transition: transform .1s cubic-bezier(.27, .06, .17, .99);
     }
+    .item a:hover .case .joowon {
+      opacity: 1;
+      /*transform: translateY(-20px);*/
+      /*transition: transform .1s cubic-bezier(.27, .06, .17, .99);*/
+    }
     
+    .joowon {
+      position: absolute;
+      top: -5px;
+      left:-5px;
+      right: -5px;
+      bottom: -5px;
+      opacity: 0;
+      padding: 20px;
+      background-color: rgb(126, 126, 126, 0.8);
+    }
     
     /* ----------- active */
     .item a:active .case {
