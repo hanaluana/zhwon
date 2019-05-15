@@ -1,18 +1,17 @@
 {% extends 'base.html' %}
 {% block body %}
   <div id="main" class="mt-3">
-    <div id="current" class="card mb-3 mt-3">
+    <div id="current" class="card mb-3 mt-3" style="background-color:#141414">
       <div class="container">
-        <div class="row d-flex justify-content-center">
-          <div class="card-header">
-            <h1>현재 상영작 순위</h1>
-          </div>
+        <div class="row">
+          <h1 style="color:#AEB1B4">현재 상영작 순위</h1>
+          <!--#858C93-->
           <div class="card-body d-flex justify-content-center">
             <ul class="list-group" style="display: block; width:80%;">
-              <li v-for="movie in currentChart" class="list-group-item">
+              <li v-for="movie in currentChart" class="list-group-item" style="background-color:#1B1C1D; color: #858C93;">
                 <div class="row d-flex align-items-center">
                   <div class="col-md-1">
-                    <span class="badge badge-danger badge-pill ml-auto">[[movie.rank]]</span>
+                    <span class="badge badge-danger badge-pill ml-auto" style="width:100%">[[movie.rank]]</span>
                   </div>
                   <div class="col-md-6 mr-auto">
                     <a :href="movie.url" style="color: inherit;"><h4>[[movie.title]]</h4></a>
@@ -40,7 +39,7 @@
       delimiters: ['[[',']]'],
       el: '#main',
       data: {
-        current_url: 'https://final-project-zoo1.c9users.io/api/v1/current/',
+        current_url: 'https://final-movie-hzzle.c9users.io/api/v1/current/',
         chart : [],
         currentChart : [],
       },
