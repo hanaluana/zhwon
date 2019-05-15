@@ -10,5 +10,5 @@ class MovieForm(forms.ModelForm):
 class RatingForm(forms.ModelForm):
     class Meta:
         model = Rating
-        fields = ['comment', 'score']
+        fields = ['score','comment']
         
