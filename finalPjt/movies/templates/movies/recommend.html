@@ -3,8 +3,8 @@
   <div id="main" class="mt-3">
     <div class="card mt-3" style="background-color:#1B1C1D">
       <div id="cgv" class="container mt-3">
-        <h1 style="color:#AEB1B4">성별, 연령별 영화 추천</h1>
-        <div class="input-group">
+        <h1 style="color:#f7f7f7">성별, 연령별 영화 추천</h1>
+        <div class="input-group mt-3">
           <!--<div class="input-group ml-auto col" style="padding:0px;">-->
             <select class="custom-select" id="inputGroupSelect04" aria-label="select type" v-model="cgv_type" style="width:30%; background-color:#4D4D4F; color: #D0D3D8; border-color:#646466">
               <option selected value="1">예매율순</option>
@@ -36,15 +36,15 @@
             <div class="col-md-6">
               <div class="card" style="background-color:#272729">
                 <div class="card-header" align="center">
-                  <h3>[[ genders[gender-1] ]] 비율이 높은 영화 추천</h3>
+                  <h3 style="color:#f7f7f7">[[ genders[gender-1] ]] 비율이 높은 영화 추천</h3>
                 </div>
                 <div class="card-body">
                   <ul class="list-group" style="display: block;">
-                    <li v-for="movie in genderChart" class="list-group-item d-flex align-items-center">
-                      <span class='badge badge-success badge-pill mr-2'>[[ genderChart.indexOf(movie)+1 ]]</span>
+                    <li v-for="movie in genderChart" class="list-group-item d-flex align-items-center" style="background-color:#3E3F40; color:#f7f7f7">
+                      <span class='badge badge-success badge-pill mr-2' style="background-color: #239B4F; border-color: #239B4F; color: #f7f7f7">[[ genderChart.indexOf(movie)+1 ]]</span>
                       <a :href="movie.url" style="color: inherit;">[[ movie.title ]]</a>
-                      <span class="badge badge-success badge-pill ml-auto">[[ movie.gender[gender-1] ]]</span>
-                      <span class='badge badge-success badge-pill ml-1'><a :href="movie.url" style="color:white;">바로가기</a></span>
+                      <span class="badge badge-success badge-pill ml-auto" style="background-color: #239B4F; border-color: #239B4F; color: #f7f7f7">[[ movie.gender[gender-1] ]]</span>
+                      <span class='badge badge-success badge-pill ml-1'><a :href="movie.url" style="background-color: #239B4F; border-color: #239B4F; color: #f7f7f7">바로가기</a></span>
                     </li>
                   </ul>
                 </div>
@@ -53,11 +53,11 @@
             <div class="col-md-6">
               <div class="card" style="background-color:#272729">
                 <div class="card-header" align="center">
-                  <h3>[[ ages[age-1] ]] 비율이 높은 영화 추천</h3>
+                  <h3 style="color:#f7f7f7">[[ ages[age-1] ]] 비율이 높은 영화 추천</h3>
                 </div>
                 <div class="card-body">
                   <ul class="list-group" style="display: block;">
-                  <li v-for="movie in ageChart" class="list-group-item d-flex align-items-center">
+                  <li v-for="movie in ageChart" class="list-group-item d-flex align-items-center" style="background-color:#3E3F40; color:#f7f7f7">
                     <span class='badge badge-danger badge-pill mr-2'>[[ ageChart.indexOf(movie)+1 ]]</span>
                     <a :href="movie.url" style="color: inherit;">[[movie.title ]]</a>
                     <span class="badge badge-danger badge-pill ml-auto">[[ movie.age[age-1] ]]</span>
@@ -98,7 +98,7 @@
     </div>
     <div class="card mt-3 mb-3" style="background-color:#1B1C1D">
       <div id="naver" class="container mt-3 mb-3">
-        <h1 style="color:#AEB1B4">장르별 영화 추천</h1>
+        <h1 style="color:#f7f7f7">장르별 영화 추천</h1>
         <div class="mt-3 d-flex justify-content-center">
           <div class="input-group" style="width:50%;">
             <select class="custom-select" id="inputGroupSelect04" aria-label="select type" v-model="naver_type" style="background-color:#4D4D4F; color: #D0D3D8; border-color:#646466">
@@ -131,11 +131,11 @@
             <div class="col">
               <div class="card" style="background-color:#272729">
                 <div class="card-header" align="center">
-                  <h2 style="color:#AEB1B4">[[ genres[naver_type-1] ]] 영화 추천</h2>
+                  <h2 style="color:#f7f7f7">[[ genres[naver_type-1] ]] 영화 추천</h2>
                 </div>
                 <div class="card-body">
                   <ul class="list-group" style="display: block;">
-                  <li v-for="movie in naver_chart" class="list-group-item d-flex align-items-center" style="background-color:#4D4D4F">
+                  <li v-for="movie in naver_chart" class="list-group-item d-flex align-items-center" style="background-color:#3E3F40; color:#f7f7f7">
                     <span class='badge badge-primary badge-pill mr-2'>[[ movie.rank ]]</span>
                     <a :href="movie.url" style="color:inherit;">[[ movie.title ]]</a>
                     <span class="badge badge-primary badge-pill ml-auto"> [[ movie.naver_point ]]</span>
