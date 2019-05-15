@@ -3,10 +3,20 @@
 {% load bootstrap4 %}
 
 {% block body %}
-    <h1>회원가입</h1>
-    <form method="POST">
-        {% csrf_token %}
-        {% bootstrap_form form %}
-    <button class='btn btn-primary' type="submit">회원가입</button>
-    </form>
+    <div class="container mt-3 mb-3">
+    <div class="card">
+      <div class="card-header" align="center">
+        <h3>회원가입</h3>
+      </div>
+      <div class="card-body">
+        <form method="POST">
+          {% csrf_token %}
+          {% bootstrap_form form %}
+          <div align="right">
+            <button class='btn btn-primary' type="submit">회원가입</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
 {% endblock %}
