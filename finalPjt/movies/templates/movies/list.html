@@ -13,7 +13,7 @@
     {% for movie in movies %}
      <div class="card mt-2 mr-2" style="width: 20rem;">
        <a href="{% url 'movies:detail' movie.id %}">
-        <img src="{{ movie.image }}" class="card-img-top" alt="movie.title">
+        <img src="{{ movie.poster_image }}" class="card-img-top" alt="movie.title">
       </a>
 
         <div class="card-body">
