@@ -38,17 +38,26 @@ def get_item(dictionary, key):
 def list(request):
     originMovies = Movie.objects.all()
     movies= originMovies
+    # 동무들 평점 
     avg_score = {}
-    
     for movie in movies:
         sum = Rating.objects.filter(movie=movie).aggregate(Avg('score'))
         if sum['score__avg']:
             avg_score[movie.id] = sum['score__avg']  
         else:
             avg_score[movie.id] = 0
-    # print(avg_score)
-        
-    return render(request, 'movies/list.html', {'movies':movies, 'avg_score':avg_score})
+    
+    # 영화 3개씩 나누기 - for carousel
+    newMovie = []
+    i = 1
+    for movie in movies:
+        if (movie.id) % 3 == 0:
+            newMovie.append(movies[movie.id-3:movie.id])
+    newMovie.append(movie)
+
+
+            
+    return render(request, 'movies/list.html', {'movies':movies, 'avg_score':avg_score, 'newMovie':newMovie})
         
 
 def detail(request, movie_id):
