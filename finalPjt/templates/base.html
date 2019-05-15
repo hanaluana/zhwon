@@ -10,6 +10,7 @@
     <!--Font Awesome CSS-->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
     <!--Google Font-->
+    <link href="https://fonts.googleapis.com/css?family=Do+Hyeon|Hi+Melody|Poor+Story|Sunflower:300" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Gaegu|Gamja+Flower|Hi+Melody|Nanum+Gothic|Sunflower:300" rel="stylesheet">
     <title>WONS PROJECT</title>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
@@ -22,13 +23,29 @@
     html {
       height: 100%;
       }
+    body {
+      background-color: #141414;
+    }
     
     
     #wrapper {
       padding: 2% 0 15% 0;
     }
     
-
+    /* navbar */
+    .nav-link {
+      font-family: 'Do Hyeon', sans-serif;
+      font-size: 20px;
+    }
+    
+    /* movie list */
+    .Rating {
+      font-family: 'Do Hyeon', sans-serif;
+    }    
+    /* movie detail */
+    .detailText{
+      color: white;
+    }
     /* ----------- start
     here it gets more interesting */
     
@@ -41,7 +58,6 @@
     }
     
     .item .stars {
-      
       position: absolute;
       text-align: center;
       color: transparent;
@@ -106,9 +122,6 @@
     
     
     /* ----------- hover */
-    .item a:hover { 
-      cursor: crosshair;
-    }
     .item a:hover .case{
       /*opacity: 1;*/
       transform: translateY(-20px);
@@ -167,6 +180,17 @@
     .item:target a:hover{ cursor: default; }
     .item:target a:hover .case { transform: none;}
 
+
+    .sample {
+      display: inline-block;
+    }
+    
+    @media screen and (max-width: 1000px) {
+      .sample {
+        display: none;
+      }
+    }
+    
     
     </style>
   </head>
