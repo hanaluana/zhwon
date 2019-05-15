@@ -3,7 +3,7 @@
 {% load bootstrap4 %}
 
 {% block body %}
-  <h1>영화리스트</h1>
+  <img src=""></img>
   {% if user.is_superuser %}
   <div>
     <a href="{% url 'movies:create' %}">영화 추가하러 가기</a>
@@ -13,29 +13,25 @@
   <!--TEST-->
   <div id="wrapper">
     
-
-    <div id="amelie" class="item">
-      <a href="#amelie"><span class="case"><img src="https://s.cdpn.io/79/movie-amelie.jpg" /></span></a>
+    <div class="row">
+      {% for movie in movies %}
+        <div class="col-sm-6 col-md-3">
+          <div id="{{movie.id}}" class="item">
+            <a href="{% url 'movies:detail' movie.id %}"><span class="case"><img src="{{movie.poster_image}}" width="100%" height="100%"/>
+        
+            <div class="joowon d-flex flex-column justify-content-center">
+              <button type="button" class="btn btn-outline-info" style="margin-bottom:1rem">예매하기</button>
+              <button type="button" class="btn btn-outline-info">Info</button>
+              <button class="btn btn-info">동무들 평점 {{ avg_score|get_item:movie.id }}</button>            
+            </div>
+          
+            </span></a>
+          </div>
+        </div>
+        
+        
+      {% endfor %}
     </div>
-    
-    <div id="bruno" class="item">
-      <a href="#bruno"><span class="case"><img src="https://s.cdpn.io/79/movie-goats.jpg" /></span></a>
-    </div>
-    
-    <div id="american-beauty" class="item">
-      <a href="#american-beauty"><span class="case"><img src="https://s.cdpn.io/79/movie-americanbeauty.jpg" /></span></a>
-    </div>
-    
-    
-    <div id="wall-e" class="item">
-      <a href="#wall-e"><span class="case"><img src="https://s.cdpn.io/79/movie-wall-e.jpg" /></span></a>
-    </div>
-    
-    
-    <div id="fight-club" class="item">
-      <a href="#fight-club"><span class="case"><img src="https://s.cdpn.io/79/movie-fightclub.jpg" /></span></a>
-    </div>
-    
   </div>
 <!--END TEST-->
 
