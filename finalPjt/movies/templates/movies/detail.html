@@ -9,7 +9,7 @@
       </div>
       <div class="col-md-6 ml-auto">
         <h1>{{movie.title}}</h1>
-        <p><strong>{{movie.director}}・ {{movie.openDate}} ・ {{movie.duration}}분 ・ {{movie.nation}} </strong></p>
+        <p><strong>{{movie.director}}・ {{movie.openDate}} ・ {{movie.duration}}분 ・ {{movie.nation}} ・ {% for g in movie.genre.all %}#{{g}} {% endfor %}</strong></p>
         <p> 네이버 평점: 
           {% if movie.user_Rating >= 2 %}
             <i class="fas fa-star" style="color:orange;"></i>
