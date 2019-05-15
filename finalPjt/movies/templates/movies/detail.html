@@ -66,132 +66,132 @@
           {% endif %}
           {{avg_score}}점
         </p>
-      <div>
-      <a class="btn btn-success" style="border: 1px solid;" href="{{movie.naver_link}}"> 네이버 영화</a>
-      {% if movie.reservation %}
-      <a class="btn btn-info" style="border: 1px solid;" href="{{movie.reservation}}">예매하기</a>
-      {% endif %}  
-      {% if user.is_superuser %}
-        <div class="mt-2">
-        <a class="btn btn-info" href="{% url 'movies:update' movie.id %}">영화 정보 수정</a>
-        <a class="btn btn-danger" href="{% url 'movies:delete' movie.id %}">영화 삭제</a>
-        </div>
-      {% endif %}
-    </div>
-  </div>
-  
-  <div class="container mt-3 mb-3">
-  <hr style="height:1px;">
-    <div class="row mt-3">
-      <div class="col-md-7">
-        <div class="card">
-          <div class="card-header">
-          <h2>상세정보</h2>
-          </div>
-          <div class="card-body">
-            <p><strong>줄거리</strong></p>
-            <p>{{movie.summary}}</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-5">
-        <div class="card">
-          <div class="card-header">
-            <h2>사진첩</h2>
-          </div>
-          <div class="card-body">
-            <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-              <div class="carousel-inner">
-                {% for image in movie.image_set.all|slice:":1" %}
-                <div class="carousel-item active">
-                  <img src="{{image.url}}" class="d-block w-100" style="width:100%">
-                </div>
-                {% endfor %}
-                {% for image in movie.image_set.all|slice:"1:" %}
-                <div class="carousel-item">
-                  <img src="{{image.url}}" class="d-block w-100" style="width:100%;">
-                </div>
-                {% endfor %}
-              </div>
-              <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-              </a>
-              <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-              </a>
-            </div>
-          </div>
-        </div>
-        
-      </div>
-    </div>
-  </div>
-  <div class="container mt-3">
-    <div class="card mt-3">
-      <div class="card-header">
-        <h2>평점</h2>
-      </div>
-      <div class="card-body">
-        <!--현재 사용자가 리뷰를 남겨본 적이 없는 경우-->
         <div>
-          {% if check %}
-            <div class="card mb-3">
-              <div class="card-body">
-                <form method="POST" action="{% url 'movies:create_rating' movie.id%}">
-                  <!--bootstrap Form-->
-                  {% csrf_token %}
-                  {% bootstrap_form rating_form %}
-                  <div>
-                  <button type="submit" class="btn btn-primary" style="float:right">submit</button>
-                  </div>
-                </form>
-              </div>
-            </div> 
-          {% else %}
-            <div class="card mb-3">
-              <div class="card-body">
-                <h3>내가 남긴 평점</h3>
-                <div class="row mt-3 mb-3">
-                  <div class="col-10">
-                    <li class="list-group-item d-flex justify-content-between align-items-center">
-                      <strong>{{user}}</strong>
-                      {{rated.comment}}
-                      <span class="badge badge-primary badge-pill">{{rated.score}}</span>
-                    </li>
-                  </div>
-                  <div class="col-2 d-flex align-items-center">
-                    <form class="d-inline-block" action={% url 'movies:delete_rating' movie.id rated.id %} method="POST">
-                      {% csrf_token %}
-                      <button type="submit" class="btn btn-danger">삭제</button>
-                    </form>
-                    <a href={% url 'movies:update_rating' movie.id rated.id %} class="btn btn-warning">수정</a>
-                  </div>
-                </div>
-              </div>
+          <a class="btn btn-success" style="border: 1px solid;" href="{{movie.naver_link}}"> 네이버 영화</a>
+          {% if movie.reservation %}
+          <a class="btn btn-info" style="border: 1px solid;" href="{{movie.reservation}}">예매하기</a>
+          {% endif %}  
+          {% if user.is_superuser %}
+            <div class="mt-2">
+            <a class="btn btn-info" href="{% url 'movies:update' movie.id %}">영화 정보 수정</a>
+            <a class="btn btn-danger" href="{% url 'movies:delete' movie.id %}">영화 삭제</a>
             </div>
           {% endif %}
         </div>
-        <!--모든 평점 보여주기-->
-        <!--<hr style="height:1px">-->
-        <div class='card mt-3'>
-          <div class="card-body">
-            <h4>평점 리스트</h4>
-            <ul class="list-group">
-              {% for rating in movie.rating_set.all %}
-                <li class="list-group-item d-flex justify-content-between align-items-center">
-                <strong>{{rating.user}}</strong>
-                {{rating.comment}}
-                <span class="badge badge-primary badge-pill">{{rating.score}}</span>
-                </li>
-              {% endfor %}
-            </ul>
+      </div>
+  
+        <div class="container mt-3 mb-3">
+          <hr style="height:1px;">
+          <div class="row mt-3">
+            <div class="col-md-7">
+            <div class="card" style="background-color:#1B1C1D">
+              <div class="card-header">
+              <h2 style="text-align:center">상세정보</h2>
+              </div>
+              <div class="card-body">
+                <p style="text-align:center"><strong>줄거리</strong></p>
+                <p>{{movie.summary}}</p>
+              </div>
+            </div>
+          </div>
+            <div class="col-md-5">
+            <div class="card" style="background-color:#1B1C1D">
+              <div class="card-header">
+                <h2 style="text-align:center">사진첩</h2>
+              </div>
+              <div class="card-body">
+                <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                  <div class="carousel-inner">
+                    {% for image in movie.image_set.all|slice:":1" %}
+                    <div class="carousel-item active">
+                      <img src="{{image.url}}" class="d-block w-100" style="width:100%">
+                    </div>
+                    {% endfor %}
+                    {% for image in movie.image_set.all|slice:"1:" %}
+                    <div class="carousel-item">
+                      <img src="{{image.url}}" class="d-block w-100" style="width:100%;">
+                    </div>
+                    {% endfor %}
+                  </div>
+                  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                  </a>
+                  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+            
+          </div>
           </div>
         </div>
-      </div>
-    </div>
-  
+        <div class="container mt-3">
+          <div class="card mt-3" style="background-color:#1B1C1D">
+            <div class="card-header">
+              <h2 style="text-align:center">평점</h2>
+            </div>
+            <div class="card-body">
+              <!--현재 사용자가 리뷰를 남겨본 적이 없는 경우-->
+              <div>
+                {% if check %}
+                  <div class="card mb-3" style="background-color:#25282d">
+                    <div class="card-body">
+                      <form method="POST" action="{% url 'movies:create_rating' movie.id%}">
+                        <!--bootstrap Form-->
+                        {% csrf_token %}
+                        {% bootstrap_form rating_form %}
+                        <div>
+                        <button type="submit" class="btn btn-primary" style="float:right">submit</button>
+                        </div>
+                      </form>
+                    </div>
+                  </div> 
+                {% else %}
+                  <div class="card mb-3">
+                    <div class="card-body">
+                      <h3>내가 남긴 평점</h3>
+                      <div class="row mt-3 mb-3">
+                        <div class="col-10">
+                          <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <strong>{{user}}</strong>
+                            {{rated.comment}}
+                            <span class="badge badge-primary badge-pill">{{rated.score}}</span>
+                          </li>
+                        </div>
+                        <div class="col-2 d-flex align-items-center">
+                          <form class="d-inline-block" action={% url 'movies:delete_rating' movie.id rated.id %} method="POST">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-danger">삭제</button>
+                          </form>
+                          <a href={% url 'movies:update_rating' movie.id rated.id %} class="btn btn-warning">수정</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                {% endif %}
+              </div>
+              <!--모든 평점 보여주기-->
+              <!--<hr style="height:1px">-->
+              <div class='card mt-3' style="background-color:#25282d">
+                <div class="card-body">
+                  <h4 style="text-align:center">평점 리스트</h4>
+                  <ul class="list-group" style="color:#25282d">
+                    {% for rating in movie.rating_set.all %}
+                      <li class="list-group-item d-flex justify-content-between align-items-center">
+                      <strong>{{rating.user}}</strong>
+                      {{rating.comment}}
+                      <span class="badge badge-primary badge-pill">{{rating.score}}</span>
+                      </li>
+                    {% endfor %}
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+      
   </div>
   
   
