@@ -1,7 +1,8 @@
 {% extends 'base.html' %}
-{% load bootstrap4 %}
-{% block body %}
 
+{% load bootstrap4 %}
+
+{% block body %}
   <h1>영화리스트</h1>
   {% if user.is_superuser %}
   <div>
@@ -9,23 +10,35 @@
   </div>
   {% endif %}
   
-  <div class="row justify-content-center">
-    {% for movie in movies %}
-     <div class="card mt-2 mr-2" style="width: 20rem;">
-       <a href="{% url 'movies:detail' movie.id %}">
-        <img src="{{ movie.poster_image }}" class="card-img-top" alt="movie.title">
-      </a>
+  <!--TEST-->
+  <div id="wrapper">
+    
 
-        <div class="card-body">
-          <h5 class="card-text">{{ movie.title }}</h5>
-        </div>
-        <div class="card-body">
-          <button class="btn btn-success">네이버 평점{{movie.user_Rating}}</button>
-          <button class="btn btn-danger">동무들 평점{{ avg_score|get_item:movie.id }}</button>
-        </div>
-        
-      </div>
-    {% endfor %}
+    <div id="amelie" class="item">
+      <a href="#amelie"><span class="case"><img src="https://s.cdpn.io/79/movie-amelie.jpg" /></span></a>
+    </div>
+    
+    <div id="bruno" class="item">
+      <a href="#bruno"><span class="case"><img src="https://s.cdpn.io/79/movie-goats.jpg" /></span></a>
+    </div>
+    
+    <div id="american-beauty" class="item">
+      <a href="#american-beauty"><span class="case"><img src="https://s.cdpn.io/79/movie-americanbeauty.jpg" /></span></a>
+    </div>
+    
+    
+    <div id="wall-e" class="item">
+      <a href="#wall-e"><span class="case"><img src="https://s.cdpn.io/79/movie-wall-e.jpg" /></span></a>
+    </div>
+    
+    
+    <div id="fight-club" class="item">
+      <a href="#fight-club"><span class="case"><img src="https://s.cdpn.io/79/movie-fightclub.jpg" /></span></a>
+    </div>
+    
   </div>
+<!--END TEST-->
+
+
 
 {% endblock %}

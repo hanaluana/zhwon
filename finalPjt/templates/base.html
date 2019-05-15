@@ -15,33 +15,166 @@
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700|Nanum+Gothic+Coding:400,700|Open+Sans:300,400,700|Rubik:400,700|Muli:400,700|Noto+Sans+KR:400,700" rel="stylesheet">
+    
+    <style>
+    @import url(https://fonts.googleapis.com/css?family=Vollkorn:bold);
+    
+    html {
+      height: 100%;
+      background-color: #e9ebf4;
+      background: url(https://s.cdpn.io/79/glow.png) no-repeat fixed center -300px,
+        linear-gradient( hsl(229, 33%, 94%), hsla(229, 33%, 94%, 0) ) fixed center top,
+        url(https://s.cdpn.io/79/light-noise.gif) repeat fixed 0 0;
+    }
+    
+    
+    #wrapper {
+      padding: 10% 0 15% 0;
+    }
+    
+    
+    /* ----------- start
+    here it gets more interesting */
+    
+    
+    .item {
+      position: relative;
+      display: inline-block;
+      perspective: 200;
+    }
+    
+    .item .stars {
+      
+      position: absolute;
+      text-align: center;
+      color: transparent;
+      z-index: -1;
+      bottom: 0px;
+      -webkit-user-select: none;
+    }
+    
+    .stars .star {
+      font-size: .3em;
+    }
+    
+    /* 3D positioning */
+    
+    .item:nth-child(1) a { transform: translateZ(-50px) rotateY(20deg); -webkit-filter: grayscale(1) blur(1px); }
+    .item:nth-child(2) a { transform: translateZ(-120px) rotateY(10deg); -webkit-filter: grayscale(1) blur(2px); }
+    .item:nth-child(3) a { transform: translateZ(-150px) rotateY(0deg); -webkit-filter: grayscale(1) blur(3px); }
+    .item:nth-child(4) a { transform: translateZ(-120px) rotateY(-10deg); -webkit-filter: grayscale(1) blur(2px); }
+    .item:nth-child(5) a { transform: translateZ(-50px) rotateY(-20deg); -webkit-filter: grayscale(1) blur(1px); }
+    
+    .item:nth-child(1) a img { padding-left: 10px; }
+    .item:nth-child(2) a img { padding-left: 6px; margin: 0 2px; }
+    .item:nth-child(3) a img { padding: 0px; margin: 0 5px; }
+    .item:nth-child(4) a img { padding-right: 6px; margin: 0 2px; }
+    .item:nth-child(5) a img { padding-right: 10px; }
+    
+    
+    .item a {
+      display: inline-block;
+      box-reflect: below 0px linear-gradient( hsla(0,0%,100%,0), hsla(0,0%,100%,0) 60%, hsla(0,0%,100%,.15) );
+      transition: transform .5s cubic-bezier(.24, .16, .12, 1); 
+      transition: transform .5s cubic-bezier(.24, .16, .12, 1), 
+        -webkit-filter .5s cubic-bezier(.24, .16, .12, 1);
+    }
+    
+    /* DVD case */
+    
+    .item a .case {
+      position: relative;
+      display: block;
+      width: 100%;
+      height: 100%;
+      transition: transform .5s cubic-bezier(.27, .06, .17, .99);	
+    }
+    .item a .case:before {
+      content: "";
+      position: absolute; 
+      width: 95%;
+      height: 100%;
+      top: 0;
+      z-index: 1;
+      
+      border-radius: 8px / 3px;
+      box-shadow: inset 0 0 2px hsla(0,0%,100%,1), inset 0 0 20px hsla(0,0%,100%,.3);
+      background-image: linear-gradient( 135deg, hsla(0,0%,100%,.1), hsla(0,0%,100%,0),
+        hsla(0,0%,100%,.25) 50%, hsla(0,0%,100%,0) 50% );
+    }
+    
+    .item:nth-child(1) .case:before { left: 5.5%; }
+    .item:nth-child(2) .case:before { left: 4.5%; }
+    .item:nth-child(3) .case:before { left: 3%; }
+    .item:nth-child(4) .case:before { left: 1.5%; }
+    .item:nth-child(5) .case:before { left: 0%; }
+    
+    
+    /* cover image */
+    
+    .item img { 
+      display: block;
+      background-color: #222;
+      border-radius: 12px / 6px;
+      background-image: linear-gradient(hsla(0,0%,100%,.5), hsla(0,0%,100%,0) );
+    }
+    
+    
+    
+    
+    /* ----------- hover */
+    .item a:hover { 
+      cursor: crosshair;
+    }
+    .item a:hover .case {
+      transform: translateY(-20px);
+      transition: transform .1s cubic-bezier(.27, .06, .17, .99);
+    }
+    
+    
+    /* ----------- active */
+    .item a:active .case {
+      transform: translateY(-20px) scale(.9);
+      transition: transform .1s ease-out;
+    }
+    
+    
+    
+    /* ----------- :target 
+    Here all the styles that get applied after a movie gets clicked*/
+    
+    
+    .item:target a {
+      position: relative;
+      z-index: 1;
+      transform: translateZ(0px);
+      -webkit-filter: grayscale(0) blur(0);
+      transition: transform .2s cubic-bezier(.24, .16, .12, 1), -webkit-filter .2s ease-out;
+    }
+    .item:target a img {
+      margin: 0 5px;
+      padding: 0;
+      border-radius: 6px / 4px;
+    }
+    
+    .item:target a .case:before {
+      width: 93.5%;
+      height: 99.5%;
+      left: 6px;
+      top: 1px;
+    }
+    
+    /* hover */
+    .item:target a:hover{ cursor: default; }
+    .item:target a:hover .case { transform: none;}
 
     
-    <!--별점-->
-    <link rel="stylesheet" href="StarRating.css">
-    <link rel="stylesheet" href="//code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-    <style>
-    #footer {
-      padding: 10px 3rem;
-      align-items: center;
-      position: fixed;
-      left: 0;
-      bottom: 0;
-      width: 100%;
-      background-color: #333;
-      font-family: 'Muli', sans-serif;
-      color: #ddd;
-      min-height: 30px;
-    }
-    .footer-brand{
-      font-size: 20px;
-      line-height: 1;
-      font-weight: 700;
-      letter-spacing: -1.2px;
-    }
     </style>
   </head>
+  
   <body>
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300,400,700&subset=latin-ext" rel="stylesheet">
+
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
