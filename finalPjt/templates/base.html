@@ -23,13 +23,29 @@
     html {
       height: 100%;
       }
+    body {
+      background-color: #141414;
+    }
     
     
     #wrapper {
       padding: 2% 0 15% 0;
     }
     
-
+    /* navbar */
+    .nav-link {
+      font-family: 'Do Hyeon', sans-serif;
+      font-size: 20px;
+    }
+    
+    /* movie list */
+    .Rating {
+      font-family: 'Do Hyeon', sans-serif;
+    }    
+    /* movie detail */
+    .detailText{
+      color: white;
+    }
     /* ----------- start
     here it gets more interesting */
     
@@ -42,7 +58,6 @@
     }
     
     .item .stars {
-      
       position: absolute;
       text-align: center;
       color: transparent;
@@ -170,7 +185,7 @@
       display: inline-block;
     }
     
-    @media screen and (max-width: 960px) {
+    @media screen and (max-width: 1000px) {
       .sample {
         display: none;
       }
