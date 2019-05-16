@@ -164,7 +164,7 @@ def start(request):
     
 def error_404(request):
     data = {}
-    return render(request,'error.html')
+    return render(request,'404.html')
 
 def error_500(request):
     data = {}
