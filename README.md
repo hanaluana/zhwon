@@ -50,13 +50,31 @@
 
 ### file tree
 
+├── Procfile
 ├── accounts
 │   ├── __init__.py
 │   ├── __pycache__
+│   │   ├── __init__.cpython-36.pyc
+│   │   ├── admin.cpython-36.pyc
+│   │   ├── forms.cpython-36.pyc
+│   │   ├── models.cpython-36.pyc
+│   │   ├── urls.cpython-36.pyc
+│   │   └── views.cpython-36.pyc
 │   ├── admin.py
 │   ├── apps.py
 │   ├── forms.py
 │   ├── migrations
+│   │   ├── 0001_initial.py
+│   │   ├── 0002_profile_image.py
+│   │   ├── 0003_auto_20190513_0540.py
+│   │   ├── 0004_auto_20190515_0036.py
+│   │   ├── __init__.py
+│   │   └── __pycache__
+│   │       ├── 0001_initial.cpython-36.pyc
+│   │       ├── 0002_profile_image.cpython-36.pyc
+│   │       ├── 0003_auto_20190513_0540.cpython-36.pyc
+│   │       ├── 0004_auto_20190515_0036.cpython-36.pyc
+│   │       └── __init__.cpython-36.pyc
 │   ├── models.py
 │   ├── templates
 │   │   └── accounts
@@ -70,9 +88,17 @@
 ├── api
 │   ├── __init__.py
 │   ├── __pycache__
+│   │   ├── __init__.cpython-36.pyc
+│   │   ├── admin.cpython-36.pyc
+│   │   ├── models.cpython-36.pyc
+│   │   ├── urls.cpython-36.pyc
+│   │   └── views.cpython-36.pyc
 │   ├── admin.py
 │   ├── apps.py
 │   ├── migrations
+│   │   ├── __init__.py
+│   │   └── __pycache__
+│   │       └── __init__.cpython-36.pyc
 │   ├── models.py
 │   ├── tests.py
 │   ├── urls.py
@@ -82,12 +108,22 @@
 ├── movie
 │   ├── __init__.py
 │   ├── __pycache__
+│   │   ├── __init__.cpython-36.pyc
+│   │   ├── settings.cpython-36.pyc
+│   │   ├── urls.cpython-36.pyc
+│   │   └── wsgi.cpython-36.pyc
 │   ├── settings.py
 │   ├── urls.py
 │   └── wsgi.py
 ├── movies
 │   ├── __init__.py
 │   ├── __pycache__
+│   │   ├── __init__.cpython-36.pyc
+│   │   ├── admin.cpython-36.pyc
+│   │   ├── forms.cpython-36.pyc
+│   │   ├── models.cpython-36.pyc
+│   │   ├── urls.cpython-36.pyc
+│   │   └── views.cpython-36.pyc
 │   ├── admin.py
 │   ├── apps.py
 │   ├── fixtures
@@ -98,6 +134,19 @@
 │   │   └── movie_naver.json
 │   ├── forms.py
 │   ├── migrations
+│   │   ├── 0001_initial.py
+│   │   ├── 0002_movie_user_rating.py
+│   │   ├── 0003_auto_20190513_0640.py
+│   │   ├── 0004_auto_20190513_0849.py
+│   │   ├── 0005_auto_20190515_0036.py
+│   │   ├── __init__.py
+│   │   └── __pycache__
+│   │       ├── 0001_initial.cpython-36.pyc
+│   │       ├── 0002_movie_user_rating.cpython-36.pyc
+│   │       ├── 0003_auto_20190513_0640.cpython-36.pyc
+│   │       ├── 0004_auto_20190513_0849.cpython-36.pyc
+│   │       ├── 0005_auto_20190515_0036.cpython-36.pyc
+│   │       └── __init__.cpython-36.pyc
 │   ├── models.py
 │   ├── templates
 │   │   └── movies
@@ -111,11 +160,12 @@
 │   ├── tests.py
 │   ├── urls.py
 │   └── views.py
+├── requirements.txt
+├── runtime.txt
 ├── staticfiles
 └── templates
-    ├── 404.html
-    ├── base.html
-    └── nav.html
+   ├── base.html
+   └── nav.html
 
 
 
