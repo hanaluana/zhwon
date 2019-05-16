@@ -10,6 +10,10 @@ from django.template.defaulttags import register
 
 from django.db.models import Avg
 
+from rest_framework.response import Response
+from rest_framework.decorators import api_view
+from .serializer import RatingSerializer
+
 ## 영화
 # 영화 생성 - superuser인 경우에만 가능하도록
 def create(request):
@@ -45,7 +49,7 @@ def list(request):
     for movie in movies:
         sum = Rating.objects.filter(movie=movie).aggregate(Avg('score'))
         if sum['score__avg']:
-            avg_score[movie.id] = sum['score__avg']  
+            avg_score[movie.id] = round(sum['score__avg'],2) 
         else:
             avg_score[movie.id] = 0
     
@@ -62,21 +66,20 @@ def list(request):
 def detail(request, movie_id):
     movie = get_object_or_404(Movie, pk=movie_id)
     ratings = Rating.objects.filter(movie=movie)
-    check = True
-    rated = ''
+    check = {"value":True}
+    rated = Rating.objects.get(score=-1)
     
     for rating in ratings:
         if request.user == rating.user:
-            check = False
+            check = {"value":False}
             rated = rating
     rating_form = RatingForm()
     
     sum = Rating.objects.filter(movie=movie).aggregate(Avg('score'))
     if sum['score__avg']:
-        avg_score = sum['score__avg']  
+        avg_score = round(sum['score__avg'],2)
     else:
         avg_score = 0
-
     context = {
         'movie':movie,
         'rating_form': rating_form,
@@ -122,6 +125,14 @@ def create_rating(request, movie_id):
         rating.save()
     # 다음에 다시 상세페이지로 보내기
     return redirect('movies:detail', movie.id)
+    
+@api_view(['POST','GET']) #허용할 http method를 적어줌
+def starcreate_rating(request, movie_id):
+    rating = request.data
+    serializer = RatingSerializer(data=rating)
+    if serializer.is_valid(raise_exception=True):
+        serializer.save()
+    return Response(serializer.data)
     
 @require_POST
 def delete_rating(request, movie_id, rating_id):

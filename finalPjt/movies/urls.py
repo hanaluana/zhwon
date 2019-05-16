@@ -17,5 +17,7 @@ urlpatterns = [
     path('<int:movie_id>/rating/create/', views.create_rating, name='create_rating'),
     path('<int:movie_id>/rating/<int:rating_id>/delete', views.delete_rating, name="delete_rating"),
     path('<int:movie_id>/rating/<int:rating_id>/update', views.update_rating, name="update_rating"),
+    
+    path('<int:movie_id>/rating/starcreate/', views.starcreate_rating, name='starcreate_rating'),
 
 ]
