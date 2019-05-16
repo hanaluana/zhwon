@@ -162,5 +162,6 @@ def show(request):
 def start(request):
     return render(request, 'movies/start.html')
     
-    
+
+
 
