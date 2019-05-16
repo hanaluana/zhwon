@@ -22,5 +22,7 @@ urlpatterns = [
     path('accounts/', include('accounts.urls')),
     path('movies/', include('movies.urls')),
     path('api/v1/', include('api.urls')),
+
     path('',movies_views.start, name="root"),
 ]
+
