@@ -135,30 +135,51 @@
             </div>
             <div class="card-body">
               <!--현재 사용자가 리뷰를 남겨본 적이 없는 경우-->
-              <div>
-                {% if check %}
-                  <div class="card mb-3" style="background-color:#25282d">
+              <div id="app">
+                  <div class="card mb-3" style="background-color:#25282d" v-if="checkRate">
                     <div class="card-body">
-                      <form method="POST" action="{% url 'movies:create_rating' movie.id%}">
-                        <!--bootstrap Form-->
-                        {% csrf_token %}
-                        {% bootstrap_form rating_form %}
-                        <div>
-                        <button type="submit" class="btn btn-primary" style="float:right">submit</button>
+                      <fieldset class="rating" style="width:100%">
+                        <input type="radio" id="star5" name="rating" value="5" @click="rate(10)" /><label class="full" for="star5"
+                          title="Awesome - 5 stars"></label>
+                        <input type="radio" id="star4half" name="rating" value="4 and a half" @click="rate(9)" /><label class="half"
+                          for="star4half" title="Pretty good - 4.5 stars"></label>
+                        <input type="radio" id="star4" name="rating" value="4" @click="rate(8)" /><label class="full" for="star4"
+                          title="Pretty good - 4 stars"></label>
+                        <input type="radio" id="star3half" name="rating" value="3 and a half" @click="rate(7)" /><label class="half"
+                          for="star3half" title="Meh - 3.5 stars"></label>
+                        <input type="radio" id="star3" name="rating" value="3" @click="rate(6)" /><label class="full" for="star3"
+                          title="Meh - 3 stars"></label>
+                        <input type="radio" id="star2half" name="rating" value="2 and a half" @click="rate(5)" /><label class="half"
+                          for="star2half" title="Kinda bad - 2.5 stars"></label>
+                        <input type="radio" id="star2" name="rating" value="2" @click="rate(4)" /><label class="full" for="star2"
+                          title="Kinda bad - 2 stars"></label>
+                        <input type="radio" id="star1half" name="rating" value="1 and a half" @click="rate(3)" /><label class="half"
+                          for="star1half" title="Meh - 1.5 stars"></label>
+                        <input type="radio" id="star1" name="rating" value="1" @click="rate(2)" /><label class="full" for="star1"
+                          title="Sucks big time - 1 star"></label>
+                        <input type="radio" id="starhalf" name="rating" value="half" @click="rate(1)" /><label class="half" for="starhalf"
+                          title="Sucks big time - 0.5 stars"></label>
+                        
+                      </fieldset>
+                      <div class="input-group mb-3">
+                          <input type="text" class="form-control" placeholder="평점 남기기" aria-label="Recipient's username"
+                            aria-describedby="button-addon2" v-model="comment">
+                          <div class="input-group-append">
+                            <button class="btn btn-primary" type="button" id="button-addon2"
+                              @click="sendcomment({{movie.id}}, {{user.id}})">남기기</button>
+                          </div>
                         </div>
-                      </form>
                     </div>
-                  </div> 
-                {% else %}
-                  <div class="card mb-3" style="background-color:#25282d">
+                  </div>
+                  <div class="card mb-3" style="background-color:#25282d" v-else>
                     <div class="card-body">
                       <h4>내가 남긴 평점</h4>
                       <div class="row mt-3 mb-3">
                         <div class="col-10" style="color:#25282d">
                           <li class="list-group-item d-flex justify-content-between align-items-center">
                             <strong>{{user}}</strong>
-                            {{rated.comment}}
-                            <span class="badge badge-primary badge-pill">{{rated.score}}</span>
+                            {% if rated.score >= 0 %} {{rated.comment}} {% else %} [[my_comment]] {% endif %}
+                            <span class="badge badge-primary badge-pill">{% if rated.score >= 0 %} {{rated.score}} {% else %} [[my_score]] {% endif %}</span>
                           </li>
                         </div>
                         <div class="col-2 d-flex align-items-center">
@@ -171,7 +192,7 @@
                       </div>
                     </div>
                   </div>
-                {% endif %}
+              </div>
               </div>
               <!--모든 평점 보여주기-->
               <!--<hr style="height:1px">-->
@@ -193,7 +214,53 @@
           </div>
       
   </div>
-  
+  <script>
+    axios.defaults.xsrfCookieName = 'csrftoken';
+    axios.defaults.xsrfHeaderName = "X-CSRFTOKEN";
+    const app = new Vue({
+      delimiters: ['[[', ']]'],
+      el: '#app',
+      data: {
+        score : 0,
+        comment: '',
+        url: 'https://final-movie-hzzle.c9users.io/movies/',
+        user : 0,
+        checkRate : false,
+        my_score: 0,
+        my_comment: ''
+      },
+      methods: {
+        rate: function (x) {
+          this.score = x
+        },
+        sendcomment: function (movie_id, user_id) {
+          axios.post(`${this.url}${movie_id}/rating/starcreate/`, { "comment": this.comment, "score": this.score,
+          "user": user_id, "movie": movie_id }).then(response => { console.log(response)})
+          .catch(error => {console.log(error.response)}).then(()=>{this.checkRate=false; this.my_score = this.score; this.my_comment = this.comment})
+        },
+        checkRated: function() {
+          if ( {{rated.score}} >= 0 ){
+            this.checkRate = false
+          }else {
+            this.checkRate = true
+          }
+        }
+      },
+      created: function () {
+        this.checkRated()
+      }
+    })
+  </script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+
   
   
 {% endblock %}
