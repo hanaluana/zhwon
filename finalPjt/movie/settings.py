@@ -24,7 +24,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'slmf7l&_n&qm76!@dxcwz#z7%&*p9_z(lo-_k%mtr4(seo!u2f'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 ALLOWED_HOSTS = ['*']
@@ -138,6 +138,3 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 AUTH_USER_MODEL = "accounts.User" 
 
 django_heroku.settings(locals())
-
-DEBUG = False
-TEMPLATE_DEBUG = DEBUG

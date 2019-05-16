@@ -162,11 +162,4 @@ def show(request):
 def start(request):
     return render(request, 'movies/start.html')
     
-def error_404(request):
-    data = {}
-    return render(request,'404.html')
-
-def error_500(request):
-    data = {}
-    return render(request,'404.html')
     
