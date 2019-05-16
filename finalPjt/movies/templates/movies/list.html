@@ -5,9 +5,8 @@
 {% block body %}
   <img src=""></img>
   {% if user.is_superuser %}
-  <div>
-    <img src="{{STATIC_URL}}images/popcorn.png"/>
-    <a class="btn btn-primary" href="{% url 'movies:create' %}">영화 추가하러 가기</a>
+  <div align="right">
+    <a href="{% url 'movies:create' %}"><img src="https://image.flaticon.com/icons/svg/184/184578.svg" width="10%"></img></a>
   </div>
   {% endif %}
   
