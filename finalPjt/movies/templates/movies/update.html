@@ -3,7 +3,7 @@
 {% load bootstrap4 %}
 
 {% block body %}
-  <h1>수정 페이지</h1>
+  <h1 style="font-weight:bold">수정 페이지</h1>
     <form method="POST">
         {% csrf_token %}
         {% bootstrap_form form %}        
