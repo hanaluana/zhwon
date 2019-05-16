@@ -10,17 +10,22 @@ from .forms import CustomUserChangeForm, ProfileForm, CustomUserCreationForm
 from .models import Profile, User
 from movies.models import Rating
 
+from movies.models import Movie
+import random
+
 
 def login(request):
+    num = random.randrange(1, 50)
+    movie = Movie.objects.get(id=num)
+    
     if request.method == 'POST':
         form = AuthenticationForm(request, request.POST) # request, request.POST
         if form.is_valid():
             auth_login(request, form.get_user()) 
             return redirect(request.GET.get('next') or 'movies:list') 
     else: 
-        # GET: 로그인 정보 입력
         form = AuthenticationForm()
-    return render(request, 'accounts/login.html', {'form': form})
+    return render(request, 'accounts/login.html', {'form': form, 'movie': movie})
     
 
 
