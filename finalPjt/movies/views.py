@@ -66,12 +66,10 @@ def list(request):
 def detail(request, movie_id):
     movie = get_object_or_404(Movie, pk=movie_id)
     ratings = Rating.objects.filter(movie=movie)
-    check = {"value":True}
     rated = Rating.objects.get(score=-1)
     
     for rating in ratings:
         if request.user == rating.user:
-            check = {"value":False}
             rated = rating
     rating_form = RatingForm()
     
@@ -84,7 +82,6 @@ def detail(request, movie_id):
         'movie':movie,
         'rating_form': rating_form,
         'ratings': ratings,
-        'check': check,
         'avg_score': avg_score,
         'rated': rated
     }

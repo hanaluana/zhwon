@@ -168,7 +168,7 @@
                         </div>
                         <div class="input-group mb-1 col-lg-10 mt-2">
                           <input type="text" class="form-control" placeholder="평점 남기기" aria-label="Recipient's username"
-                            aria-describedby="button-addon2" v-model="comment">
+                            aria-describedby="button-addon2" v-model="comment"  @keyup.enter="sendcomment({{movie.id}}, {{user.id}})">
                           <div class="input-group-append">
                             <button class="btn btn-primary" type="button" id="button-addon2"
                               @click="sendcomment({{movie.id}}, {{user.id}})">남기기</button>
@@ -198,7 +198,7 @@
                       </div>
                     </div>
                   </div>
-              </div>
+                </div>
               </div>
               <!--모든 평점 보여주기-->
               <!--<hr style="height:1px">-->
