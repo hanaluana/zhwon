@@ -50,75 +50,7 @@
 
 ### file tree
 
-
-├── accounts
-│   ├── __init__.py
-│   ├── __pycache__
-│   ├── admin.py
-│   ├── apps.py
-│   ├── forms.py
-│   ├── migrations
-│   ├── models.py
-│   ├── templates
-│   │   └── accounts
-│   │       ├── login.html
-│   │       ├── mypage.html
-│   │       ├── signup.html
-│   │       └── update.html
-│   ├── tests.py
-│   ├── urls.py
-│   └── views.py
-├── api
-│   ├── __init__.py
-│   ├── __pycache__
-│   ├── admin.py
-│   ├── apps.py
-│   ├── migrations
-│   ├── models.py
-│   ├── tests.py
-│   ├── urls.py
-│   └── views.py
-├── db.sqlite3
-├── manage.py
-├── movie
-│   ├── __init__.py
-│   ├── __pycache__
-│   ├── settings.py
-│   ├── urls.py
-│   └── wsgi.py
-├── movies
-│   ├── __init__.py
-│   ├── __pycache__
-│   ├── admin.py
-│   ├── apps.py
-│   ├── fixtures
-│   │   ├── boxoffice.json
-│   │   ├── genre.json
-│   │   ├── image.json
-│   │   ├── movie.json
-│   │   └── movie_naver.json
-│   ├── forms.py
-│   ├── migrations
-│   ├── models.py
-│   ├── templates
-│   │   └── movies
-│   │       ├── create.html
-│   │       ├── current.html
-│   │       ├── detail.html
-│   │       ├── list.html
-│   │       ├── recommend.html
-│   │       ├── start.html
-│   │       └── update.html
-│   ├── tests.py
-│   ├── urls.py
-│   └── views.py
-├── staticfiles
-└── templates
-    ├── 404.html
-    ├── base.html
-    └── nav.html
-
-
+![tree](./tree.JPG)
 
 ### 데이터베이스 모델링
 
