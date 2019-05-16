@@ -15,10 +15,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from movies import views as movies_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('accounts.urls')),
     path('movies/', include('movies.urls')),
     path('api/v1/', include('api.urls')),
+    path('',movies_views.start, name="root"),
 ]
+handler404 = movies_views.error_404
+handler500 = movies_views.error_500
