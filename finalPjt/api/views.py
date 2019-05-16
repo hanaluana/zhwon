@@ -5,6 +5,7 @@ import requests
 from bs4 import BeautifulSoup
 import os
 import datetime
+from django.http import JsonResponse
 # Create your views here.
 
 @api_view(['GET'])
@@ -64,7 +65,7 @@ def cgv(request, type_id, gender, age):
         response['data']['age_rank'].append(movies['data'][age_now])
         response['data']['gender_rank'].append(movies['data'][gender_now])
     
-    return Response(response)
+    return JsonResponse(response)
 
 @api_view(['GET'])
 def naver(request, type_id):

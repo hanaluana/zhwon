@@ -24,5 +24,3 @@ urlpatterns = [
     path('api/v1/', include('api.urls')),
     path('',movies_views.start, name="root"),
 ]
-handler404 = movies_views.error_404
-handler500 = movies_views.error_500
