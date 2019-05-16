@@ -121,7 +121,7 @@
 
 ### 데이터베이스 모델링
 
-![erd](erd.jpg)
+![erd](./erd.jpg)
 
 
 
@@ -209,9 +209,9 @@
 
 이렇게 3가지의 정보를 사용자로부터 입력 받아서 (원하는 장르, 성별, 연령대), 실시간으로 크롤링을 해와서 띄워주었다.
 
-![cgv](C:\Users\student\Desktop\cgv.JPG)
+![cgv](./cgv.JPG)
 
-![naver](C:\Users\student\Desktop\naver.JPG)
+![naver](./naver.JPG)
 
 ## 5. 배포서버 URL
 
