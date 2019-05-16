@@ -65,7 +65,7 @@ def cgv(request, type_id, gender, age):
         response['data']['age_rank'].append(movies['data'][age_now])
         response['data']['gender_rank'].append(movies['data'][gender_now])
     
-    return JsonResponse(response)
+    return Response(response)
 
 @api_view(['GET'])
 def naver(request, type_id):
