@@ -4,9 +4,9 @@
 
 {% block body %}
   <h1 style="color:#f7f7f7">영화 생성 페이지</h1>
-    <form method="POST" style="color:#f7f7f7">
-        {% csrf_token %}
-        {% bootstrap_form form %}        
-      <button class='btn btn-primary' type="submit">영화추가</button>
-    </form>
+  <form method="POST" style="color:#f7f7f7">
+      {% csrf_token %}
+      {% bootstrap_form form %}        
+    <button class='btn btn-primary' type="submit">영화추가</button>
+  </form>
 {% endblock %}
