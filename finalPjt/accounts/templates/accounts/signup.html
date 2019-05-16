@@ -3,10 +3,12 @@
 {% load bootstrap4 %}
 
 {% block body %}
-    <div class="container mt-3 mb-3">
-    <div class="card">
+<div class="container mt-5 mb-3">
+  <div class="row">
+    <div class="card col-md-6 col-lg-6 offset-md-3 offset-lg-3">
       <div class="card-header" align="center">
-        <h3>회원가입</h3>
+        <div style="text-align:center; font-size:60px; font-weight:bolder; color:#2980ef;"><i class="fas fa-user-plus"></i></div>
+
       </div>
       <div class="card-body">
         <form method="POST">
@@ -18,5 +20,9 @@
         </form>
       </div>
     </div>
+    <div class="col-md-3 col-lg-3"></div>
   </div>
+
+
+</div>
 {% endblock %}
