@@ -246,6 +246,7 @@
           .then(response => { this.checkRate = false; this.my_id= response.data.id; this.my_comment= response.data.comment; this.my_score= response.data.score;})
         },
         checkRated: function() {
+          console.log({{rated.score}})
           if ( {{rated.score}} >= 0 ){
             this.checkRate = false
             this.my_id = {{rated.id}}
@@ -254,6 +255,7 @@
           }else {
             this.checkRate = true
           }
+          
         },
         delete_url: function(movie_id){
           return (`rating/${this.my_id}/delete`)
