@@ -74,7 +74,7 @@
           {% if user.is_superuser %}
             <div class="mt-2">
             <a class="btn btn-info" style="border: 1px solid gray;" href="{% url 'movies:update' movie.id %}">영화 정보 수정</a>
-            <a class="btn btn-danger" style="border: 1px solid gray;" href="{% url 'movies:delete' movie.id %}">영화 삭제</a>
+            <a class="btn btn-danger" style="border: 0.5px solid gray;" href="{% url 'movies:delete' movie.id %}">영화 삭제</a>
             </div>
           {% endif %}
         </div>
@@ -154,7 +154,7 @@
                     <div class="card-body">
                       <h4>내가 남긴 평점</h4>
                       <div class="row mt-3 mb-3">
-                        <div class="col-10">
+                        <div class="col-10" style="color:#25282d">
                           <li class="list-group-item d-flex justify-content-between align-items-center">
                             <strong>{{user}}</strong>
                             {{rated.comment}}
