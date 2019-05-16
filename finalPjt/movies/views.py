@@ -21,6 +21,8 @@ def create(request):
                 movie = form.save()
                 # 성공하면 영화 상세 페이지로 간다.
                 return render(request, 'movies/detail.html', movie)
+            else:
+                return render(request, 'error.html')
 
         else:
             form = MovieForm()
@@ -54,9 +56,6 @@ def list(request):
         if (movie.id) % 3 == 0:
             newMovie.append(movies[movie.id-3:movie.id])
     newMovie.append(movie)
-
-
-            
     return render(request, 'movies/list.html', {'movies':movies, 'avg_score':avg_score, 'newMovie':newMovie})
         
 
@@ -159,3 +158,14 @@ def show(request):
     cnt = 0
     print(movies)
     return render(request, 'movies/carousel.html')    
+    
+def start(request):
+    return render(request, 'movies/start.html')
+    
+def error_404(request):
+    data = {}
+    return render(request,'error.html')
+
+def error_500(request):
+    data = {}
+    return render(request,'error.html')

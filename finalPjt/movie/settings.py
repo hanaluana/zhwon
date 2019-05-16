@@ -139,6 +139,5 @@ AUTH_USER_MODEL = "accounts.User"
 
 django_heroku.settings(locals())
 
-# TEMPLATE_DIRS = (
-#     'C:/Users/Me/Django/fianlPjt/templates',    
-# )
+DEBUG = False
+TEMPLATE_DEBUG = DEBUG
