@@ -67,14 +67,14 @@
           {{avg_score}}점
         </p>
         <div>
-          <a class="btn btn-success" style="border: 1px solid;" href="{{movie.naver_link}}"> 네이버 영화</a>
+          <a class="btn btn-success" style="border: 1px solid gray;" href="{{movie.naver_link}}"> 네이버 영화</a>
           {% if movie.reservation %}
-          <a class="btn btn-info" style="border: 1px solid;" href="{{movie.reservation}}">예매하기</a>
+          <a class="btn btn-info" style="border: 1px solid gray;" href="{{movie.reservation}}">예매하기</a>
           {% endif %}  
           {% if user.is_superuser %}
             <div class="mt-2">
-            <a class="btn btn-info" href="{% url 'movies:update' movie.id %}">영화 정보 수정</a>
-            <a class="btn btn-danger" href="{% url 'movies:delete' movie.id %}">영화 삭제</a>
+            <a class="btn btn-info" style="border: 1px solid gray;" href="{% url 'movies:update' movie.id %}">영화 정보 수정</a>
+            <a class="btn btn-danger" style="border: 1px solid gray;" href="{% url 'movies:delete' movie.id %}">영화 삭제</a>
             </div>
           {% endif %}
         </div>
