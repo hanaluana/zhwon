@@ -5,5 +5,5 @@ from .models import Rating
 class RatingSerializer(serializers.ModelSerializer):
     class Meta:
         model = Rating
-        fields = ['comment','score','user','movie']
+        fields = ['id','comment','score','user','movie']
     
