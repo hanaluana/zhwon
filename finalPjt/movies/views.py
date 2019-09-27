@@ -59,7 +59,7 @@ def list(request):
     for movie in movies:
         if (movie.id) % 3 == 0:
             newMovie.append(movies[movie.id-3:movie.id])
-    newMovie.append(movie)
+    # newMovie.append(movie)
     return render(request, 'movies/list.html', {'movies':movies, 'avg_score':avg_score, 'newMovie':newMovie})
         
 
@@ -67,6 +67,7 @@ def detail(request, movie_id):
     movie = get_object_or_404(Movie, pk=movie_id)
     ratings = Rating.objects.filter(movie=movie)
     rated = Rating.objects.get(score=-1)
+    print(rated)
     
     for rating in ratings:
         if request.user == rating.user:

@@ -229,7 +229,7 @@
       data: {
         score : 0,
         comment: '',
-        url: 'https://final-movie-hzzle.c9users.io/movies/',
+        url: 'http://127.0.0.1:8000/movies/',
         user : 0,
         checkRate : false,
         my_score: 0,
@@ -255,6 +255,7 @@
           }else {
             this.checkRate = true
           }
+          console.log(this.checkRate)
           
         },
         delete_url: function(movie_id){
