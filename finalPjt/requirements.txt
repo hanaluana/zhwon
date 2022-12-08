@@ -1,7 +1,7 @@
 backcall==0.1.0
 beautifulsoup4==4.7.1
 bs4==0.0.1
-certifi==2019.3.9
+certifi==2022.12.7
 chardet==3.0.4
 chromedriver==2.24.1
 chromedriver-binary==75.0.3770.8.0
